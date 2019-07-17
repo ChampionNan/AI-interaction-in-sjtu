@@ -2,12 +2,12 @@ import dlib
 import cv2
 
 # 人脸图像
-img = cv2.imread("photo.jpg")
+img = cv2.imread("self1.jpg")
 #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 
 # 帽子图像
-hat_img = cv2.imread("xmashat.png", -1)
+hat_img = cv2.imread("hat.png", -1)
 r,g,b,a = cv2.split(hat_img) 
 rgb_hat = cv2.merge((r,g,b))
  # 分离alpha通道
@@ -19,7 +19,7 @@ cv2.imwrite("hat_alpha.jpg",a)
 detector = dlib.get_frontal_face_detector()
 
 # Dlib的68点模型
-predictor = dlib.shape_predictor("models/shape_predictor_5_face_landmarks.dat")
+predictor = dlib.shape_predictor("shape_predictor_5_face_landmarks.dat")
 
 
 
@@ -99,8 +99,8 @@ for i, d in enumerate(faces):
         
     
 
-cv2.imshow("Output", img)
+#cv2.imshow("Output", img)
 cv2.imwrite("withHat.jpg", img)
-cv2.waitKey(0)
+#cv2.waitKey(0)
   
 
